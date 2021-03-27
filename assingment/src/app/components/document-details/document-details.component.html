@@ -1,0 +1,151 @@
+<div class="grid-container">
+    <div class="grid1">
+        <div class="grid1-flex1">
+            <div>
+                <img src="assets/images/assignment_icons/Combined-Shape.png" alt="img-1">
+            </div>
+            <div>
+                <img src="assets/images/assignment_icons/dashboard (5) 1.svg" alt="img-1">
+            </div>    
+            <div>
+                <img src="assets/images/assignment_icons/Group (4).svg" alt="img-1">
+            </div>
+            <div>
+                <img src="assets/images/assignment_icons/business-report-with-growth (1) 1.svg" alt="img-1">
+            </div>
+            <div>    
+                <img src="assets/images/assignment_icons/settings (2) 1.svg" alt="img-1">
+            </div>    
+        </div>
+        <div class="grid1-flex2">
+            <img src="assets/images/assignment_icons/user 2.svg" alt="img-1">
+            <img (click)="logout()" src="assets/images/assignment_icons/logout-button 1.svg" alt="img-1">
+        </div>
+        <!-- <img src="assets/images/assignment_icons/Group (5).svg" alt="img-1"> -->
+    </div>
+    <div class="grid2">
+        <div class="grid2-flex1">
+            <div class="grid-2fle1-input" >
+                <div><a style="color: black; " href="/document_list">
+                    <i style="font-size: 20px;margin-top: 5px;" class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>         
+                </a> </div>
+                <div><h2 style="float: right;">{{name}}</h2></div> 
+            </div>
+            <div class="grid-2fle2-input" >
+                <div>Document ID:<span style="color: #37B97E;"><b> {{id}}</b></span></div>
+             <div style="margin-right: 5%;background-color: #E2FFF2;"><button style="border: 1px solid #21B371;" type="button" class="btn btn-outline-secondary">More Info</button></div>
+             <div style="background-color: #E2FFF2;"><button style="border: 1px solid #21B371;" type="button" class="btn btn-outline-secondary">Scan History</button></div>
+            </div>
+        </div>
+        <div class="grid2-flex2">
+            <div class="grid2-container1">
+                <mat-tab-group style="overflow: hidden;" >
+                    <mat-tab style="overflow: hidden;" label="ID Details"> 
+                        <div style="margin:10%">
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Document ID">
+                                <div class="input-group-append">
+                                  <button style="border: 1px solid rgba(128, 128, 128, 0.685);" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                  </div>
+                                </div>
+                            </div><br><br>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="ID Number" aria-label="Username" aria-describedby="basic-addon1">
+                            </div><br>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1">
+                            </div><br>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1">
+                            </div><br>
+                            <div class="input-group mb-3">
+                                <input type="text"  class="form-control" placeholder="Date of Birth" aria-label="Username" aria-describedby="basic-addon1">
+                            </div><br>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="ID Expiry" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab style="overflow: hidden;" label="Address"> 
+                        <div style="margin:10%">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1">
+                            </div><br>
+                            <div class="input-group">
+                                <textarea class="form-control" aria-label="With textarea" value="Address..."></textarea>
+                            </div><br>
+                        </div>
+                              
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+            <div class="grid2-container2">
+                <div>
+                <div style="text-align: left;">
+                    <h2>Identity Card</h2>
+                </div>
+                <div *ngFor="let item of docuDetails">
+                    <img *ngIf="showFront" width="100%" src="{{imgSrcID_Card_Front}}" alt=""><br>
+                    <img *ngIf="!showFront" width="100%" src="{{imgSrcID_Card_Back}}" alt=""><br>
+
+                    <!-- <img width="20%" src="https://storage.googleapis.com/flexverify.appspot.com/{{item.ID_Card_Back}}" alt=""> -->
+                </div><br><br>
+                <div style="text-align: center;">
+                    <div style="display: flex;flex-direction: row;justify-content: space-between;"> 
+                        <div (click)="toogleImage()"><i class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div (click)="toogleImage()"><i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: left;">
+                    <h2>Live Photo Check</h2>
+                </div>
+                <div *ngFor="let item of liveCheckPhotos">
+                    <img  width="100%" src="{{item}}" alt=""><br>
+                    <!-- <img width="20%" src="https://storage.googleapis.com/flexverify.appspot.com/{{item.ID_Card_Back}}" alt=""> -->
+                </div><br><br>
+                <!-- <div style="text-align: center;">
+                    <div style="display: flex;flex-direction: row;justify-content: space-between;"> 
+                        <div (click)="toogleImage()"><i class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div (click)="toogleImage()"><i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div> -->
+
+                </div>
+            </div>
+            <div  class="grid2-container3">
+                <div style="border: 1px solid rgba(128, 128, 128, 0.199);" class="grid2-container3-flex1">
+                    <div style="margin:5%" class="scan_details" *ngFor="let item of docuDetails">
+                        <div ><span class="text-muted">Scan ID</span> <span>{{item.Scan_ID}}</span></div>
+                        <div ><span class="text-muted">Submitted Time</span> <span>{{item.createdAt | date:'shortTime'}}</span></div>
+                        <div *ngIf="item.deviceSignature" ><span class="text-muted">Device Signature</span> <span>{{item.deviceSignature.browser}} </span></div>
+                        <div *ngIf="!item.deviceSignature" ><span class="text-muted">Device Signature</span> <span>chrome</span></div>
+                        <div ><span class="text-muted">IP Address</span> <span>{{item.ipAddress}}</span></div>
+                        <div ><span class="text-muted">Mode</span> <span>{{item.Mode}}</span></div>
+                        <div><span></span><span>     <button mat-raised-button color="warn">Delete</button>                        </span></div>
+                    </div>
+                </div>
+                <div style="border: 1px solid rgba(128, 128, 128, 0.199);" class="grid2-container3-flex2">
+                    <div  style="margin:5%" class="scan_details" *ngFor="let item of docuDetails">
+                        <h3><b>Scan Result</b></h3>
+                        <div ><span class="text-muted">Status</span> <span>{{item.scanResultStatus}}</span></div>
+                        <div ><span class="text-muted">ID Card</span> <span>N/A</span></div>
+                        <div ><span class="text-muted">Address</span> <span>N/A</span></div>
+                        <div ><span class="text-muted">Live Check</span> <span>N/A</span></div>
+                        <div><span> <button style="padding: 2%;border: 1px solid #21B371; background-color: #E2FFF2;color: #21B371;box-sizing: border-box; border-radius: 3px; padding: 8px 20px;"> Edit</button></span><span>     <button mat-raised-button style="background-color:#37B97E; color: white;">Download</button>                        </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

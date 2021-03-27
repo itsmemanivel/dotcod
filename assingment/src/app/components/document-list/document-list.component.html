@@ -1,0 +1,78 @@
+<div class="grid-container">
+    <div class="grid1">
+        <div class="grid1-flex1">
+            <div>
+                <img src="assets/images/assignment_icons/Combined-Shape.png" alt="img-1">
+            </div>
+            <div>
+                <img src="assets/images/assignment_icons/dashboard (5) 1.svg" alt="img-1">
+            </div>    
+            <div>
+                <img src="assets/images/assignment_icons/Group (4).svg" alt="img-1">
+            </div>
+            <div>
+                <img src="assets/images/assignment_icons/business-report-with-growth (1) 1.svg" alt="img-1">
+            </div>
+            <div>    
+                <img src="assets/images/assignment_icons/settings (2) 1.svg" alt="img-1">
+            </div>    
+        </div>
+        <div class="grid1-flex2">
+            <img src="assets/images/assignment_icons/user 2.svg" alt="img-1">
+            <img (click)="logout()" src="assets/images/assignment_icons/logout-button 1.svg" alt="img-1">
+        </div>
+        <!-- <img src="assets/images/assignment_icons/Group (5).svg" alt="img-1"> -->
+    </div>
+    <div class="grid2">
+        <div class="grid2-flex1">
+            <div class="grid-2fle1-input" >
+                <div>
+                    <div class="input-group">
+                        <input  type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Document ID">
+                        <div class="input-group-append">
+                          <button style="border-radius: 0px ; background: white; border-right: none; border-left: none;border: 1px solid rgba(128, 128, 128, 0.356);" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group mb-3">
+                        <input style="border-radius: 0px;" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Filter">
+                        <div class="input-group-append">
+                          <span class="input-group-text" style="background-color: #21B371;"><img src="assets/images/assignment_icons/Group (5).svg" alt="img-1"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-2fle2-input" >
+             <div style="margin-right: 5%;"><button type="button" class="btn btn-outline-secondary">More</button></div>
+             <div><button type="button" class="btn btn-outline-secondary">Clear All</button></div>
+            </div>
+        </div>
+        <div class="grid2-flex2">
+            <div class="docu_list" *ngFor="let item of documents">
+                <mat-card routerLink="/document_details/{{item.Document_ID._id}}/{{item.Tenant_ID.Contact_Name}}" class="matCard">
+                    <div class="docu_list_table1" > 
+                        <span><span class="text-muted"> Document ID</span> <br><b> {{item.Document_ID.Document_ID}}</b></span>  
+                        <span><span class="text-muted"> Created On</span> <br><b> {{item.createdAt | date}}</b></span>  
+                        <span><span class="text-muted"> Name</span> <br><b> {{item.Tenant_ID.Contact_Name}}</b></span> 
+                        <span><span class="text-muted"> Tenent</span> <br><b> {{item.Tenant_ID.Name}}</b></span>    
+                    </div>
+                    <div class="docu_list_table2" >
+                        <span><span class="text-muted"> Scan ID</span> <br><b> {{item.Scan_ID}}</b></span>  
+                        <span><span class="text-muted"> Created Time</span> <br><b> {{item.createdAt | date:'shortTime' }}</b></span>  
+                        <span><span class="text-muted"> Nationality</span> <br><b> {{item.Document_ID.Nationality}}</b></span>    
+                        <span *ngIf="item.Document_ID.Status == 'Active'" ><span class="text-muted"> Status</span> <br><button style="padding: 2%;border: 1px solid #21B371; background-color: #E2FFF2;color: #21B371;box-sizing: border-box; border-radius: 3px; padding: 0% 10px;"> {{item.Document_ID.Status}}</button></span>    
+                        <span *ngIf="item.Document_ID.Status == 'Inprogress'" ><span class="text-muted"> Status</span> <br><b> {{item.Document_ID.Status}}</b></span>    
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

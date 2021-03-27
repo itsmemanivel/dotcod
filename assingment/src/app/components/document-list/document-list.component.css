@@ -1,0 +1,145 @@
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100%;
+
+}
+
+.grid1{
+    grid-area: 1/1/1/1;
+    background-color: #333333;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid2{
+    grid-area: 1/2/1/12;
+    background-color: #F8F8F8;
+    height: 100%;
+
+}
+
+.grid1-flex1 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: #F8F8F8; */
+}
+
+.grid1-flex1>img:nth-last-child(3) {
+    background-color: #F8F8F8;
+}
+
+.grid1-flex1>div {
+    padding: 20% 0%;
+    text-align: center;
+}
+
+.grid1-flex1>div:first-child>img {
+    width: 40px;
+} 
+
+.grid1-flex1>div:nth-child(3){
+    background-color: #F8F8F8;
+}
+
+.grid1-flex1>div>img {
+    width: 30px;
+    /* padding: % 0%; */
+    cursor: pointer;
+}
+.grid1-flex2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+.grid1-flex2>img {
+    width: 30px;
+    padding: 20% 0%;
+    cursor: pointer;
+}
+
+.grid2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+}
+
+.grid2-flex1 {
+    width: 100%;
+    height: 10%;
+    box-shadow: 1px 1px 15px #444444bb;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.grid2-flex2 {
+    width: 100%;
+    padding: 10%;
+
+}
+
+.grid-2fle1-input {
+    display: flex;
+    flex-direction: row;
+    margin: 1% 5%;
+}
+
+.grid-2fle2-input {
+    display: flex;
+    flex-direction: row;
+    margin: 1% 5%;
+}
+
+
+.docu_list {
+    padding: 1%;
+}
+
+.docu_list_table1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.docu_list_table1>span {
+    margin: 0.5% 5%;
+}
+
+.docu_list_table2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.docu_list_table2>span {
+    margin: 0.5% 5%;
+}
+
+.matCard:hover {
+    cursor: pointer;
+    background-color: #E6FEF3;
+}
+
+
+@media screen and (max-width: 600px) {
+    .grid2-flex2 {
+        width: 100%;
+        padding: 0%;
+    
+    }
+  }
+  
